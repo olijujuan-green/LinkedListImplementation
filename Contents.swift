@@ -14,7 +14,6 @@ class Node {
 class LinkedList {
     
     var head: Node?
-    var tail: Node?
     
     func insert(value: Int) {
         if head == nil {
