@@ -47,22 +47,6 @@ class LinkedList {
         
     }
     
-    func insertInOrder(value: Int) {
-        if head == nil || head?.value ?? Int.min >= value {
-            let newNode = Node(value: value, next: head)
-            head = newNode
-            return
-        }
-        
-        var currentNode: Node? = head
-        while currentNode?.next != nil, currentNode?.next?.value ?? Int.min < value {
-            currentNode = currentNode?.next
-        }
-        
-        currentNode?.next = Node(value: value, next: currentNode?.next)
-        
-    }
-    
     func reverse(head: Node?) -> Node? {
         
         var current = head
@@ -78,6 +62,26 @@ class LinkedList {
         return previous
     }
     
+    
+}
+
+class SortedLinkedList: LinkedList {
+    
+    //insertsInOrder
+    override func insert(value: Int) {
+        if head == nil || head?.value ?? Int.min >= value {
+            let newNode = Node(value: value, next: head)
+            head = newNode
+            return
+        }
+        
+        var currentNode: Node? = head
+        while currentNode?.next != nil, currentNode?.next?.value ?? Int.min < value {
+            currentNode = currentNode?.next
+        }
+        
+        currentNode?.next = Node(value: value, next: currentNode?.next)
+    }
     
 }
 
